@@ -5,12 +5,14 @@ module Ase
         class InMemory
           def initialize
             @tasks = {}
-            @id = 0
+            @id = 100
           end
 
           def persist(task)
             @id += 1
             task.id = @id
+            task.updated_at = DateTime.now
+
             tasks[@id] = task
             task
           end
