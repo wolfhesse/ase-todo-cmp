@@ -1,3 +1,6 @@
+Version 0.2.0:
+ - green clear_task
+
 Version 0.1.0
  - green datetime support: :created_at, :updated_at
  - green
