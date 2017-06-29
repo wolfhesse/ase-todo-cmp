@@ -1,7 +1,8 @@
-require 'ase/todo/cmp/version'
-require 'ase/todo/cmp/add_task'
-require 'ase/todo/cmp/in_memory'
-require 'ase/todo/cmp/task'
+require_relative 'cmp/version'
+require_relative 'cmp/add_task'
+require_relative 'cmp/clear_task.rb'
+require_relative 'cmp/in_memory'
+require_relative 'cmp/task'
 
 module Ase
   module Todo
@@ -19,6 +20,10 @@ module Ase
 
         def add_task(title)
           UseCases::AddTask.add(title)
+        end
+
+        def clear
+          UseCases::ClearTask.execute
         end
       end
     end

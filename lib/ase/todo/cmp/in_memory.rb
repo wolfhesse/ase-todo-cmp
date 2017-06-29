@@ -8,6 +8,11 @@ module Ase
             @id = 100
           end
 
+          def clear
+            @tasks = {}
+              # // @id bleibt gleich
+          end
+
           def persist(task)
             @id += 1
             task.id = @id

@@ -1,4 +1,4 @@
-require 'spec_helper'
+require_relative '../../spec_helper'
 
 RSpec.describe Ase::Todo::Cmp do
   it 'has a version number' do
@@ -9,15 +9,27 @@ RSpec.describe Ase::Todo::Cmp do
     expect(false).to eq(true)
   end
 
+  describe '.clear' do
+    let(:repo) {Ase::Todo::Cmp.repo}
+
+    it 'clears tasks' do
+      Ase::Todo::Cmp.add_task 'initial'
+      expect {Ase::Todo::Cmp.clear}.
+          to change {repo.count}.to(0)
+    end
+  end
+
   describe '.add_task' do
     let(:repo) {Ase::Todo::Cmp.repo}
 
     it 'adds a new task' do
+      Ase::Todo::Cmp.clear
       expect {Ase::Todo::Cmp.add_task('speak @ Guru-SP')}.
           to change {repo.count}.by(1)
     end
 
     it 'adds two new tasks' do
+      Ase::Todo::Cmp.clear
       expect {Ase::Todo::Cmp.add_task('speak @ Guru-SP'); Ase::Todo::Cmp.add_task(:another.to_s)}.
           to change {repo.count}.by(2)
     end
