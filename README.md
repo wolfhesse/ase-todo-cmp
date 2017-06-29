@@ -1,8 +1,15 @@
 # Ase::Todo::Cmp
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ase/todo/cmp`. To experiment with that code, run `bin/console` for an interactive prompt.
+A clean-code exercise
+(launch console for interactive tests)
 
-TODO: Delete this and the text above, and describe your gem
+Adding a task:
+
+Ase::Todo::Cmp.add_task('write about clean architecture')
+Ase::Todo::Cmp.add_task('write about clean architecture')
+Ase::Todo::Cmp.add_task('write about clean architecture')
+
+Ase::Todo::Cmp.repo
 
 ## Installation
 
