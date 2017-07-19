@@ -1,7 +1,7 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "ase/todo/cmp/version"
+require 'ase/todo/cmp/version'
 
 Gem::Specification.new do |spec|
   spec.name = 'ase-todo-cmp'
@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email = ['wolfgang.schuessel@gmail.com']
 
   spec.summary = %q{todo-component}
-  spec.description = %q{a clean-code execise}
+  spec.description = %q{a clean-code exercise}
   spec.homepage = "TODO: Put your gem's website or public repo URL here."
   spec.license = 'MIT'
 
@@ -19,8 +19,8 @@ Gem::Specification.new do |spec|
   if spec.respond_to?(:metadata)
     spec.metadata['allowed_push_host'] = "TODO: Set to 'http://mygemserver.com'"
   else
-    raise "RubyGems 2.0 or newer is required to protect against " \
-      "public gem pushes."
+    raise 'RubyGems 2.0 or newer is required to protect against ' \
+      'public gem pushes.'
   end
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
