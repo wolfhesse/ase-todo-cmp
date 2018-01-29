@@ -1,3 +1,9 @@
+Version 1.0.2:
+ - build 1.0.2, lass es im verzeichnis liegen
+ - Merge branch 'work' into develop
+ - patches travel :shortlived w/in the system
+ - TasksRepository InMemory  + experIncrementId function + experId returns @id
+
 Version 1.0.1:
  - build 1.0.1
  - TasksRepository InMemory  + experIncrementId function + experId returns @id
