@@ -11,6 +11,7 @@ module Ase
         attr_accessor :repo
 
         def configure
+
           yield self
         end
 

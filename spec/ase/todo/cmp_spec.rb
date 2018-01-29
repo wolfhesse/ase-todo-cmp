@@ -14,6 +14,7 @@ RSpec.describe Ase::Todo::Cmp do
 
     it 'clears tasks' do
       Ase::Todo::Cmp.add_task 'initial'
+
       expect {Ase::Todo::Cmp.clear}.
           to change {repo.count}.to(0)
     end
@@ -24,14 +25,19 @@ RSpec.describe Ase::Todo::Cmp do
 
     it 'adds a new task' do
       Ase::Todo::Cmp.clear
+
       expect {Ase::Todo::Cmp.add_task('speak @ Guru-SP')}.
           to change {repo.count}.by(1)
     end
 
     it 'adds two new tasks' do
       Ase::Todo::Cmp.clear
-      expect {Ase::Todo::Cmp.add_task('speak @ Guru-SP'); Ase::Todo::Cmp.add_task(:another.to_s)}.
-          to change {repo.count}.by(2)
+
+      expect {
+        r = repo
+        Ase::Todo::Cmp.add_task('speak @ Guru-SP');
+        Ase::Todo::Cmp.add_task(:another.to_s)
+      }.to change {repo.count}.by(2)
     end
 
     context 'when title is blank' do
