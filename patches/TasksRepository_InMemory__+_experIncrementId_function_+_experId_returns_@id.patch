@@ -1,0 +1,79 @@
+Index: lib/ase/todo/cmp/reposInMemory.rb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/ase/todo/cmp/reposInMemory.rb	(date 1517264132000)
++++ lib/ase/todo/cmp/reposInMemory.rb	(date 1517266418000)
+@@ -26,6 +26,14 @@
+             tasks.length
+           end
+ 
++          def experIncrementId
++            ## experimental features
++            @id += 1
++          end
++
++          def experId
++            @id
++          end
+           private
+ 
+           attr_reader :tasks
+Index: lib/ase/todo/cmp.rb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- lib/ase/todo/cmp.rb	(date 1517264132000)
++++ lib/ase/todo/cmp.rb	(date 1517264171000)
+@@ -11,7 +11,7 @@
+         attr_accessor :repo
+ 
+         def configure
+-
++          puts("inside #{Ase::Todo::Cmp}.configure()")
+           yield self
+         end
+ 
+Index: spec/ase/todo/cmp_spec.rb
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- spec/ase/todo/cmp_spec.rb	(date 1517264132000)
++++ spec/ase/todo/cmp_spec.rb	(date 1517266317000)
+@@ -1,7 +1,33 @@
+ require_relative '../../spec_helper'
+ 
+ RSpec.describe Ase::Todo::Cmp do
++
++  describe '.configure' do
++    puts 1
++    let(:repo) {Ase::Todo::Cmp.repo}
++
++    # it 'is configurable' do
++    #   expect {repo.id}.to eq(1)
++    # end
++    it 'is configurable' do
++      Ase::Todo::Cmp.configure do |component|
++        # experimental feature
++        component.repo.experIncrementId
++      end
++
++      expect {
++        Ase::Todo::Cmp.add_task('configurable')
++      }.to change {repo.experId}.to(102)
++    end
++
++
++  end
++
++  it {eq(true)}
++
++
+   it 'has a version number' do
++    puts 2
+     expect(Ase::Todo::Cmp::VERSION).not_to be nil
+   end
+ 
