@@ -1,7 +1,33 @@
 require_relative '../../spec_helper'
 
 RSpec.describe Ase::Todo::Cmp do
+
+  describe '.configure' do
+    puts 1
+    let(:repo) {Ase::Todo::Cmp.repo}
+
+    # it 'is configurable' do
+    #   expect {repo.id}.to eq(1)
+    # end
+    it 'is configurable' do
+      Ase::Todo::Cmp.configure do |component|
+        # experimental feature
+        component.repo.experIncrementId
+      end
+
+      expect {
+        Ase::Todo::Cmp.add_task('configurable')
+      }.to change {repo.experId}.to(102)
+    end
+
+
+  end
+
+  it {eq(true)}
+
+
   it 'has a version number' do
+    puts 2
     expect(Ase::Todo::Cmp::VERSION).not_to be nil
   end
 
@@ -14,6 +40,7 @@ RSpec.describe Ase::Todo::Cmp do
 
     it 'clears tasks' do
       Ase::Todo::Cmp.add_task 'initial'
+
       expect {Ase::Todo::Cmp.clear}.
           to change {repo.count}.to(0)
     end
@@ -24,14 +51,19 @@ RSpec.describe Ase::Todo::Cmp do
 
     it 'adds a new task' do
       Ase::Todo::Cmp.clear
+
       expect {Ase::Todo::Cmp.add_task('speak @ Guru-SP')}.
           to change {repo.count}.by(1)
     end
 
     it 'adds two new tasks' do
       Ase::Todo::Cmp.clear
-      expect {Ase::Todo::Cmp.add_task('speak @ Guru-SP'); Ase::Todo::Cmp.add_task(:another.to_s)}.
-          to change {repo.count}.by(2)
+
+      expect {
+        r = repo
+        Ase::Todo::Cmp.add_task('speak @ Guru-SP');
+        Ase::Todo::Cmp.add_task(:another.to_s)
+      }.to change {repo.count}.by(2)
     end
 
     context 'when title is blank' do
