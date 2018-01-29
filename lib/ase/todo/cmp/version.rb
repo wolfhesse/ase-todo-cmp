@@ -1,8 +1,8 @@
 module Ase
   module Todo
     module Cmp
-      VERSION = '0.2.4'
-      SYMBOLIC_DESC = 'nive gens to dist'
+      VERSION = '1.0.0'
+      SYMBOLIC_DESC = 'semantic cheap gens to dist'
     end
   end
 end
