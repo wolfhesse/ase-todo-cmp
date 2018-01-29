@@ -35,7 +35,9 @@ RSpec.describe Ase::Todo::Cmp do
     end
 
     context 'when title is blank' do
-      subject(:add_blank_task) {Ase::Todo::Cmp.add_task('')}
+      subject(:add_blank_task) {
+        Ase::Todo::Cmp.add_task('')
+      }
 
       it 'does not persist' do
         expect {add_blank_task}.to_not change {repo.count}
