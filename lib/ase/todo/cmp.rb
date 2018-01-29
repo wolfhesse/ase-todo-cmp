@@ -11,7 +11,7 @@ module Ase
         attr_accessor :repo
 
         def configure
-
+          puts("inside #{Ase::Todo::Cmp}.configure()")
           yield self
         end
 
