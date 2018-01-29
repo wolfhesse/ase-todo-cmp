@@ -1,8 +1,8 @@
 require_relative 'cmp/version'
-require_relative 'cmp/add_task'
-require_relative 'cmp/clear_task.rb'
-require_relative 'cmp/in_memory'
-require_relative 'cmp/task'
+require_relative 'cmp/ucAddTask'
+require_relative 'cmp/ucClearTask.rb'
+require_relative 'cmp/reposInMemory'
+require_relative 'cmp/entTask'
 
 module Ase
   module Todo

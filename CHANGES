@@ -1,3 +1,12 @@
+Version 0.2.4:
+ - wp
+ - gem build 0.2.3
+ - gem build 0.2.2
+ - Merge remote-tracking branch 'origin/master'
+ - empty builds
+ - empty builds
+ - cosmetix
+
 Version 0.2.0:
  - green clear_task
 
