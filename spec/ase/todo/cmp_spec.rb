@@ -1,7 +1,33 @@
 require_relative '../../spec_helper'
 
 RSpec.describe Ase::Todo::Cmp do
+
+  describe '.configure' do
+    puts 1
+    let(:repo) {Ase::Todo::Cmp.repo}
+
+    # it 'is configurable' do
+    #   expect {repo.id}.to eq(1)
+    # end
+    it 'is configurable' do
+      Ase::Todo::Cmp.configure do |component|
+        # experimental feature
+        component.repo.experIncrementId
+      end
+
+      expect {
+        Ase::Todo::Cmp.add_task('configurable')
+      }.to change {repo.experId}.to(102)
+    end
+
+
+  end
+
+  it {eq(true)}
+
+
   it 'has a version number' do
+    puts 2
     expect(Ase::Todo::Cmp::VERSION).not_to be nil
   end
 

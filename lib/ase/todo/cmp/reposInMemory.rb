@@ -26,6 +26,14 @@ module Ase
             tasks.length
           end
 
+          def experIncrementId
+            ## experimental features
+            @id += 1
+          end
+
+          def experId
+            @id
+          end
           private
 
           attr_reader :tasks
