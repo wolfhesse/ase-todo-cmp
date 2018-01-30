@@ -52,7 +52,7 @@ RSpec.describe Ase::Todo::Cmp do
     it 'adds a new task' do
       Ase::Todo::Cmp.clear
 
-      expect {Ase::Todo::Cmp.add_task('speak @ Guru-SP')}.
+      expect {Ase::Todo::Cmp.add_task('speak @ Guru-SP', 1)}.
           to change {repo.count}.by(1)
     end
 

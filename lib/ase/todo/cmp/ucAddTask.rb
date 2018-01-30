@@ -3,7 +3,7 @@ module Ase
     module Cmp
       module UseCases
         class AddTask
-          def self.add(title, job: '')
+          def self.execute(title, job = nil)
             task = Entities::Task.new(title: title, job: job)
 
             if task.valid?
