@@ -1,3 +1,7 @@
+Version 1.0.7:
+ - add job number attribute
+ - build 1.0.6 w/o dist-step
+
 Version 1.0.5:
  - build 1.0.5 w/o dist-step
 
