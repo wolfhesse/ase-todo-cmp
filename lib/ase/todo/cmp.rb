@@ -24,7 +24,7 @@ module Ase
         end
 
         def clear
-          UseCases::ClearTask.execute
+          UseCases::ClearTasks.execute
         end
       end
     end

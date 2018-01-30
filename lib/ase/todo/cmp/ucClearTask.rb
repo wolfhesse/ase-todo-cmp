@@ -2,7 +2,7 @@ module Ase
   module Todo
     module Cmp
       module UseCases
-        class ClearTask
+        class ClearTasks
           def self.execute
             Ase::Todo::Cmp.repo.clear
           end

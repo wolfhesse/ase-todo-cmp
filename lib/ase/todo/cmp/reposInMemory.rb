@@ -18,12 +18,12 @@ module Ase
             task.id = @id
             task.updated_at = DateTime.now
 
-            tasks[@id] = task
+            @tasks[@id] = task
             task
           end
 
           def count
-            tasks.length
+            @tasks.length
           end
 
           def experIncrementId
