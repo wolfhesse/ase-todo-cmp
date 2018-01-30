@@ -6,12 +6,14 @@ module Ase
           require 'date'
           attr_accessor :id
           attr_reader :title
+          attr_reader :job
           attr_reader :created_at
           attr_accessor :updated_at
 
 
-          def initialize(title: '')
+          def initialize(title: '', job: '')
             @title = title
+            @job = job
             @created_at = DateTime.now
           end
 

@@ -3,8 +3,8 @@ module Ase
     module Cmp
       module UseCases
         class AddTask
-          def self.add(title)
-            task = Entities::Task.new(title: title)
+          def self.add(title, job: '')
+            task = Entities::Task.new(title: title, job: job)
 
             if task.valid?
               Ase::Todo::Cmp.repo.persist(task)
