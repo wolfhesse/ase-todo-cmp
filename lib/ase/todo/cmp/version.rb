@@ -1,7 +1,7 @@
 module Ase
   module Todo
     module Cmp
-      VERSION = '1.2.0'
+      VERSION = '1.3.0'
       SYMBOLIC_DESC = 'jobno local semant'
     end
   end
