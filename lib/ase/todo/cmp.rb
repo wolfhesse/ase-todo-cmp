@@ -17,6 +17,7 @@ module Ase
           puts("inside #{Ase::Todo::Cmp}.configure() w/ configuration #{@configuration}")
           yield self
           puts("going out of #{Ase::Todo::Cmp}.configure() w/ configuration #{@configuration}")
+          @is_configured = true
         end
 
         def repo
@@ -24,8 +25,10 @@ module Ase
         end
 
         def add_task(title, job = nil)
+
           # maybe job is configured
-          job ||= @configuration[:job]
+          job ||= @configuration[:job] if @is_configured
+
           UseCases::AddTask.execute(title, job)
         end
 
